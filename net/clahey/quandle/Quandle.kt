@@ -7,6 +7,7 @@ val quandleGlossary = Glossary(operators = quandleOperators.toSet())
 val quandleLaws: Set<EquationalLaw> =
     listOf(
 	"x < x = x",
+	"x > x = x",
 	"x < (y > x) = y",
 	"(x < y) > x = y",
 	"x < (y < z) = (x < y) < (x < z)",

@@ -95,7 +95,7 @@ class WordCollection(val variety: Variety, val generators: Set<Generator>, val r
                 val reduced = Application(word.op, listOf(leftSet.minWord!!, right))
                 val otherWordSet = wordMap.get(reduced)!!
                 if (otherWordSet != wordSet) {
-                    println ("$word reduces to $reduced")
+                    println ("$word merges to $otherWordSet")
                     mergeableWordSets.add(otherWordSet)
                 }
             }
@@ -103,7 +103,7 @@ class WordCollection(val variety: Variety, val generators: Set<Generator>, val r
                 val reduced = Application(word.op, listOf(left, rightSet.minWord!!))
                 val otherWordSet = wordMap.get(reduced)!!
                 if (otherWordSet != wordSet) {
-                    println ("$word reduces to $reduced")
+                    println ("$word merges to $otherWordSet")
                     mergeableWordSets.add(otherWordSet)
                 }
             }
@@ -111,7 +111,7 @@ class WordCollection(val variety: Variety, val generators: Set<Generator>, val r
                 val reduced = Application(word.op, listOf(leftSet.minWord, rightSet.minWord))
                 val otherWordSet = wordMap.get(reduced)!!
                 if (otherWordSet != wordSet) {
-                    println ("$word reduces to $reduced")
+                    println ("$word merges to $otherWordSet")
                     mergeableWordSets.add(otherWordSet)
                 }
             }

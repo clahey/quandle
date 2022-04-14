@@ -12,7 +12,7 @@ fun testNonInvolTrefoil() {
     val glossary = Glossary(generators=generators, base = quandleGlossary)
     val relations = listOf("a < b = c", "b < c = a" , "c < a = b").map{parseLaw(glossary, it)}.toSet()
 
-    testKnot(generators, relations, 5, quandleVariety)
+    testKnot(generators, relations, 3, quandleVariety)
 }
 
 fun testTrefoil() {
@@ -83,12 +83,15 @@ fun testKnot(generators: Set<Generator>, relations: Set<EquationalLaw>, repetiti
 
     val wordCollection = WordCollection(variety, generators, relations, variety.operators)
 
-    println(wordCollection.wordSets.map { it.words.size }.sum())
 
     for (i in 1..repetitions) {
-        println(wordCollection.wordSets.map { it.words.size }.sum())
+        println("words: ${wordCollection.wordSets.map { it.words.size }.sum()}")
+        println("wordSets: ${wordCollection.wordSets.size}")
         wordCollection.process()
     }
+    
+    println("words: ${wordCollection.wordSets.map { it.words.size }.sum()}")
+    println("wordSets: ${wordCollection.wordSets.size}")
 
     println(wordCollection.wordSets)
     for (op in variety.operators) {
